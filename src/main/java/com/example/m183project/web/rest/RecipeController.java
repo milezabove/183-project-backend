@@ -1,9 +1,12 @@
 package com.example.m183project.web.rest;
 
+import com.example.m183project.domain.User;
 import com.example.m183project.service.RecipeService;
 import com.example.m183project.service.dto.RecipeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,5 +32,11 @@ public class RecipeController {
     public ResponseEntity<RecipeDTO> getById(@PathVariable Long id) {
         RecipeDTO recipe = recipeService.findById(id);
         return ResponseEntity.ok(recipe);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<RecipeDTO>> search(@RequestParam String keyword) {
+        List<RecipeDTO> recipes = recipeService.findByKeyword(keyword);
+        return ResponseEntity.ok(recipes);
     }
 }

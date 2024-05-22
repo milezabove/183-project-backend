@@ -1,11 +1,16 @@
 package com.example.m183project.service;
 
+import com.example.m183project.domain.Recipe;
 import com.example.m183project.domain.User;
 import com.example.m183project.exception.LoginException;
 import com.example.m183project.mapper.UserMapper;
 import com.example.m183project.repository.UserRepository;
 import com.example.m183project.service.dto.CredentialsDTO;
+import com.example.m183project.service.dto.RecipeDTO;
 import com.example.m183project.service.dto.UserDTO;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -13,7 +18,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.nio.CharBuffer;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -22,8 +29,6 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final UserMapper userMapper;
-
-
 
     public UserDTO login (CredentialsDTO credentialsDTO) {
         Optional<User> optionalUser = userRepository.findByUsername(credentialsDTO.username());
@@ -40,8 +45,6 @@ public class UserService {
             log.error("Login failed. Invalid password for user '{}'", user.getUsername());
             throw new LoginException("Invalid password", HttpStatus.BAD_REQUEST);
         }
-
-
     }
 
     public UserDTO register(CredentialsDTO credentialsDTO) {
