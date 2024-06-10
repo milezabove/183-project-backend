@@ -6,7 +6,7 @@
 # How to use
 
 1. Projekt klonen
-2. Create a database in Docker with the command:
+2. Datenbank in Docker erstellen mit dem Befehl
    
    ```bash
    docker run --name m183 -e POSTGRES_PASSWORD=m183 -e POSTGRES_USER=postgres -p 5432:5432 -d postgres
