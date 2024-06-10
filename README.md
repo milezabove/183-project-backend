@@ -1,5 +1,5 @@
 # M183-Projekt Backend
-Folgend wird das Backend unseres Projekts beschrieben, wobei der Fokus auf den sicherheitsrelevanten Aspekten liegt.
+Folgend wird das Backend unseres Projekts 'Moody Foody' beschrieben.
 
 ### Software-Architektur
 Die Architektur unseres Backends folgt dem bewährten dreischichtigen Architekturmuster, das eine klare Trennung der Verantwortlichkeiten und eine organisierte Struktur des Codes ermöglicht.
@@ -27,7 +27,7 @@ sciherheitsrelevante aspekte
 4. Verbindung zur Datenbank in IDE konfigurieren
 5. Die Tabellen und Rezeptdaten werden beim erstmaligen Starten der Applikation durch die FlyWay-Skripts erstellt   
 
-## Anleitung
+## Beschreibung Implementierung / Sicherheitsrelevante Aspekte
 Folgend werden die für die Bewertung relevanten Punkte bezüglich Implementation beschrieben. Die entsprechenden GUI-Anleitungen sind im README.md des Frontend-Projekts (https://git.gibb.ch/gma140704/m183-project-frontend) ersichtlich.
 
 ### Authentifikation
