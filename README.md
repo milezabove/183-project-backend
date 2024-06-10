@@ -1,6 +1,6 @@
 # General Info
 
-- Den Branch "bad-example" benutzen, dieser Branch enthält den aktuellen Stand
+- Nur den Branch "bad-example" benutzen, dieser Branch enthält den aktuellen Stand
 - Die "guten Beispiele" (z.B. Benutzen von JWT für die Authentifizierung mit Bearer Token und JPA für Datenbankqueries zur Verhinderung von SQL-Injection) befinden sich ebenfalls auf diesen Branch, sind aber auskommentiert, da für die Demo die "schlechten Beispiele", die teilweise unsicher sind, gezeigt werden.
 
 # How to use
