@@ -3,6 +3,7 @@ package com.example.m183project.service;
 import com.example.m183project.domain.Recipe;
 import com.example.m183project.domain.User;
 import com.example.m183project.exception.LoginException;
+import com.example.m183project.exception.UsernameAlreadyExistsException;
 import com.example.m183project.mapper.UserMapper;
 import com.example.m183project.repository.UserRepository;
 import com.example.m183project.service.dto.CredentialsDTO;
@@ -48,6 +49,9 @@ public class UserService {
     }
 
     public UserDTO register(CredentialsDTO credentialsDTO) {
+        if (userRepository.findByUsername(credentialsDTO.username()).isPresent()) {
+            throw new UsernameAlreadyExistsException("Username is already taken");
+        }
         User user = userMapper.credentialsToUser(credentialsDTO);
         user.setPassword(passwordEncoder.encode(CharBuffer.wrap(credentialsDTO.password())));
         User savedUser = userRepository.save(user);
